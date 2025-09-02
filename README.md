@@ -1,57 +1,152 @@
+# DevOps Career Tracker
 
-# Project overview
-This app is a comprehensive DevOps career transition planner that guides users through a structured 24-week learning path, combining interactive progress tracking, daily study logging, and job application management. It helps aspiring DevOps engineers stay organized, motivated, and on track toward certification and career success.
+A comprehensive web application to help aspiring DevOps engineers track their progress through a structured 24-week learning path. Built with Next.js, TypeScript, Tailwind CSS, and shadcn/ui.
 
-# Feature requirements
-- We will use Next.js, Shadcn, Lucid, Supabase
+## Features
 
-## User Dashboard:
-- Displays the 24-week DevOps career plan divided into 4 phases (Foundation, Core Skills, Advanced Tools, Specialization & Job Prep).
+- **Dashboard**: Visual progress tracking with stats cards and weekly progress cards
+- **Study Log**: Daily study session logging with topic tracking and time management
+- **Certifications**: Track industry certifications with status and target dates
+- **Job Applications**: Monitor job applications and interview progress
+- **Weekly Notes**: Document learnings and reflections for each week
+- **Responsive Design**: Works seamlessly on desktop and mobile devices
+- **Dark/Light Theme**: Toggle between light and dark themes
+- **Data Persistence**: All data is saved to localStorage
 
-## Each week represented as an interactive card showing:
+## Tech Stack
 
-- Week number and focus area (e.g., Week 3: Networking & Security Fundamentals).
-- Planned study hours for the week (calculated from user schedule).
-- Real-time progress bar showing percentage of study hours completed.
-- Number of days left to complete the week and current phase.
-- Summary overview showing total hours studied, hours remaining, and overall percentage completion for the entire 24-week plan.
+- **Framework**: Next.js 15 with App Router
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **UI Components**: shadcn/ui
+- **Icons**: Lucide React
+- **State Management**: React Context API
+- **Date Handling**: date-fns
 
-## Daily Study Log:
+## Getting Started
 
-## Form for logging daily study sessions with:
-- Date picker (default to current date),
-- Study session type (morning, evening),
-- Number of hours studied (decimal input),
-- Notes/comments field.
-- Interface to easily add/edit/delete daily logs.
-- Automatic aggregation of daily hours into weekly totals.
+### Prerequisites
 
-## Phase & Week Tracking:
-- Ability to track progress by phases and weeks.
-- Visual indicators if the user is ahead, on track, or behind schedule based on logged study hours versus planned hours.
-- Alerts/reminders if time left is decreasing but hours logged are insufficient to meet goals.
+- Node.js 18+ 
+- npm or yarn
 
-## Notes & Reflections:
-- Section for weekly notes and reflections.
-- Text input area linked to each week’s card visible on dashboard.
+### Installation
 
-## Certification & Job Application Tracker:
-- Separate module or section tracking certifications and job applications.
-- Includes fields for certification name, planned date, completion status.
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd devops-study
+```
 
-## Job application tracker with fields: 
-- company, position, location, application date, status, interview dates.
+2. Install dependencies:
+```bash
+npm install
+```
 
-## Responsive Design:
-- Mobile and desktop friendly UI.
-- Clean, minimalistic design optimized for study and productivity.
+3. Run the development server:
+```bash
+npm run dev
+```
 
-## User Authentication & Data Persistence:
-- User login/signup functionality.
-- Reliable backend database to store logs, progress, notes.
-- Data privacy and export option (e.g., CSV export of logs and progress).
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Optional Features:
-- Calendar view for monthly/week progress visualization.
-- Export/import study logs and career plan progress.
-- Integration with calendar apps for study session reminders.
+## Project Structure
+
+```
+devops-study/
+├── app/                    # Next.js app directory
+│   ├── page.tsx           # Dashboard page
+│   ├── study-log/         # Study log pages
+│   ├── certifications/    # Certification pages
+│   ├── job-applications/  # Job application pages
+│   ├── notes/            # Notes pages
+│   ├── layout.tsx        # Root layout
+│   └── globals.css       # Global styles
+├── components/            # React components
+│   ├── ui/               # shadcn/ui components
+│   ├── navigation.tsx     # Navigation component
+│   └── week-card.tsx     # Week progress card
+├── lib/                  # Utilities and data
+│   ├── types.ts          # TypeScript interfaces
+│   ├── data.ts           # Curriculum and certification data
+│   ├── context.tsx       # React context
+│   └── utils/            # Utility functions
+└── requirements/         # Project requirements
+```
+
+## Curriculum Overview
+
+The application follows a 24-week DevOps career transition plan divided into 4 phases:
+
+### Phase 1: Foundation (Weeks 1-6)
+- Linux Basics & Command Line
+- Shell Scripting & Automation
+- Networking & Security Fundamentals
+- Version Control with Git
+- Programming Basics (Python/Go)
+- System Administration
+
+### Phase 2: Core Skills (Weeks 7-12)
+- Docker & Containerization
+- CI/CD Fundamentals
+- Jenkins & Automation
+- Testing & Quality Assurance
+- Build & Deployment Tools
+- Configuration Management
+
+### Phase 3: Advanced Tools (Weeks 13-18)
+- Kubernetes Basics
+- Kubernetes Advanced Features
+- Cloud Platforms (AWS/Azure/GCP)
+- Infrastructure as Code (Terraform)
+- Cloud Services & Architecture
+- Microservices & API Management
+
+### Phase 4: Specialization & Job Prep (Weeks 19-24)
+- Monitoring & Observability
+- Security & Compliance
+- Performance Optimization
+- DevSecOps Practices
+- Portfolio & Resume Building
+- Interview Preparation & Job Search
+
+## Available Certifications
+
+The app includes tracking for popular DevOps certifications:
+
+- AWS Certified DevOps Engineer - Professional
+- Certified Kubernetes Administrator (CKA)
+- Docker Certified Associate (DCA)
+- Microsoft Azure DevOps Engineer Expert
+- Terraform Associate
+
+## Data Structure
+
+The application stores data in the following structure:
+
+```typescript
+interface AppData {
+  studyLogs: StudyLog[];
+  weeklyHours: Record<string, number>;
+  certifications: Certification[];
+  jobApplications: JobApplication[];
+  weeklyNotes: Record<string, string>;
+  settings: UserSettings;
+}
+```
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
+
+## License
+
+This project is licensed under the MIT License.
+
+## Support
+
+For support or questions, please open an issue in the repository.
